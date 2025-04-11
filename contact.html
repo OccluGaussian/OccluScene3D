@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - OccluScene3D Benchmark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #3d566e;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --light-gray: #f5f7f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+        }
+
+        /* Header styles */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+       .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Hero section */
+       .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://example.com/your-3d-model-image.jpg') no-repeat center center/cover;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       .hero h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Contact content section */
+       .contact-content {
+            max-width: 800px;
+            margin: 4rem auto;
+            text-align: center;
+        }
+
+       .contact-content p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+       .email-link {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+       .email-link:hover {
+            color: #2980b9;
+        }
+
+       .send-email-btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+       .send-email-btn:hover {
+            background-color: #2980b9;
+        }
+
+       .github-link {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+       .github-link:hover {
+            color: #2980b9;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: white;
+            color: var(--dark);
+            padding: 1rem 0;
+        }
+
+       .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+           .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
+           .hero h1 {
+                font-size: 2rem;
+            }
+
+           .contact-content {
+                padding: 0 1rem;
+            }
+        }
+        .button.disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            pointer-events: none; /* 防止点击 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">OccluScene3D</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hero">
+        <h1>Contact:</h1>
+    </div>
+    <div class="contact-content">
+        <p>You can reach the authors at the following address:</p>
+        <a href="mailto:liushiyong3@huawei.com" class="email-link">liushiyong3@huawei.com</a><br>
+        <a href="mailto:tangxiao12@huawei.com" class="email-link">tangxiao12@huawei.com</a><br>
+        <a href="mailto:zhihao.li@huawei.com" class="email-link">zhihao.li@huawei.com</a><br>
+        <a href="mailto:119010099@link.cuhk.edu.cn" class="email-link">119010099@link.cuhk.edu.cn</a>
+        <p>For comments or questions please also check out our github site:</p>
+        <a href="https://github.com/OccluGaussian/OccluScene3D" class="github-link">https://github.com/OccluGaussian/OccluScene3D</a>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 | OccluScene3D Benchmark. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

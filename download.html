@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - OccluScene3D Benchmark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #3d566e;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --light-gray: #f5f7f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light-gray);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Page header with background */
+        .page-header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main content */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 5px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Dataset info */
+        .dataset-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .dataset-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Download tables */
+        .download-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-table th {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .download-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            text-align: center; /* 图标居中 */
+        }
+
+        .download-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .download-table tr:hover td {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+
+        /* 图标样式 */
+        .download-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .download-icon:hover {
+            color: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #3d566e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
+            .page-header {
+                padding: 4rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .download-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-md-5 {
+                width: 41.66666667%;
+            }
+        }
+
+        #additional th {
+            text-align: left;
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        /* 禁用样式 */
+        .button.disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            pointer-events: none; /* 防止点击 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Occlu<span>Scene3D</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Download OccluScene3D Datasets</h1>
+        <p>Access our comprehensive collection of datasets for evaluating large scene reconstruction and rendering with occlusion challenges</p>
+    </div>
+
+    <div class="main-container">
+        <div class="section">
+            <h2 class="section-title">Training Set</h2>
+
+            <div class="dataset-info">
+                <p>This set contains scenes used in OccluGaussian for trianing.</p>
+            </div>
+
+            <table class="download-table">
+                <thead>
+                    <tr>
+                        <th>Scene</th>
+                        <th>Reconstruction</th>
+                        <th>Camera Poses （train）</th>
+                        <th>Camera Poses (test)</th>
+                        <th>Video</th>
+                        <th>Image Set</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gallery</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('gallery_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('gallery_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('gallery_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('gallery_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('gallery_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Canteen</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('canteen_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('canteen_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('canteen_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('canteen_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('canteen_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Classbuilding</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('classbuilding_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('classbuilding_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('classbuilding_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('classbuilding_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('classbuilding_image_set')"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Advanced Occlusion Set</h2>
+
+            <div class="dataset-info">
+                <h3>Complex Occlusion Scenes</h3>
+                <p>This set contains challenging scenes with complex occlusion patterns for benchmarking state-of-the-art 3D scene understanding algorithms.</p>
+            </div>
+
+            <table class="download-table">
+                <thead>
+                    <tr>
+                        <th>Scene</th>
+                        <th>Reconstruction</th>
+                        <th>Camera Poses (train)</th>
+                        <th>Camera Poses (test)</th>
+                        <th>Video</th>
+                        <th>Image Set</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gym</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('gym_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('gym_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('gym_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('gym_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('gym_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Liwen</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('liwen_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('liwen_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('liwen_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('liwen_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('liwen_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Meeting room</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('meeting_room_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('meeting_room_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('meeting_room_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('meeting_room_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('meeting_room_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Muse</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('muse_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('muse_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('muse_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('muse_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('muse_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Parking Lot</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('parking_lot_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('parking_lot_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('parking_lot_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('parking_lot_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('parking_lot_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Zhiren</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('zhiren_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('zhiren_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('zhiren_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('zhiren_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('zhiren_image_set')"></i></td>
+                    </tr>
+                    <tr>
+                        <td>TXD</td>
+                        <td><i class="fa-solid fa-house download-icon" onclick="download('txd_reconstruction')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('txd_camera_poses')"></i></td>
+                        <td><i class="fa-solid fa-camera download-icon" onclick="download('txd_camera_poses_test')"></i></td>
+                        <td><i class="fa-solid fa-video download-icon" onclick="download('txd_video')"></i></td>
+                        <td><i class="fa-solid fa-image download-icon" onclick="download('txd_image_set')"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Additional Resources</h2>
+            <!-- 这里可以添加更多资源的描述和下载链接 -->
+            <div class=" col-md-5">
+                <table style="width:100%" id="additional">
+                    <tbody>
+                        <tr>
+                            <th><h3>Paper</h3></th>
+                            <th><h3>Supplementary</h3></th>
+                        
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://arxiv.org/pdf/2503.16177" target="_blank">
+                                    <img src="images/paper.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="https://drive.google.com/file/d/0B-ePgl6HF260MGhQX0dCcmdHbFk/view?usp=sharing&amp;resourcekey=0-NGDZk7msShrLsAIzelHTEQ" target="_blank">
+                                    <img src="images/supplementary.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+     <!--     <div class="footer-container">
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="benchmark.html">Benchmark</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Email: info@occluscene3d.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+        </div> -->
+        <div class="copyright">
+            &copy; 2025 OccluScene3D Benchmark. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function download(fileName) {
+            // 这里需要根据实际情况修改文件下载链接
+            const downloadLinks = {
+                'gallery_reconstruction': 'path/to/gallery_reconstruction.zip',
+                'gallery_camera_poses': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=26312063%2D6bb0%2D4ca6%2Da56b%2D955938c76b91',
+                'gallery_camera_poses_test': "https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Fhuangbx7%5Fconnect%5Fhku%5Fhk%2FDocuments%2FOccluGaussian%2FOccluGaussian%2Fgallery%2Ftest%2Ezip", 
+                'gallery_video': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=38b8ddec%2D484e%2D4cc4%2D9937%2De675daec854b',
+                'gallery_image_set': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Fhuangbx7%5Fconnect%5Fhku%5Fhk%2FDocuments%2FOccluGaussian%2FOccluGaussian%2Fgallery%2Fimages%2Ezip',
+                'canteen_reconstruction': 'path/to/canteen_reconstruction.zip',
+                'canteen_camera_poses': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=73fb19c6%2D176f%2D4daf%2D873f%2D023daffd8114',
+                'canteen_camera_poses_test': "https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=aa46decb%2Dbb79%2D4500%2Dbd64%2D1ada40d19eb3",
+                'canteen_video': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=399a5553%2D2a3a%2D4c82%2Da14d%2Df159c5bedf8f',
+                'canteen_image_set': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=1d141d18%2Dc09e%2D4354%2Dae23%2Dd53f5b0320e5',
+                'classbuilding_reconstruction': 'path/to/classbuilding_reconstruction.zip',
+                'classbuilding_camera_poses': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=b190af08%2D24c3%2D4068%2Da0f6%2D26878b74c51e',
+                'classbuilding_camera_poses_test': "https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=899b9938%2Da02a%2D4c62%2D8f44%2Ddbf3dfc27fa1",
+                'classbuilding_video': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=db1172d5%2D7bfe%2D475f%2Db741%2D21435275d15a',
+                'classbuilding_image_set': 'https://connecthkuhk-my.sharepoint.com/personal/huangbx7_connect_hku_hk/_layouts/15/download.aspx?UniqueId=79ef6fd0%2D6a45%2D4aef%2Db1d3%2D8f69c05c3347',
+                'gym_reconstruction': 'path/to/gym_reconstruction.zip',
+                'gym_camera_poses': 'path/to/gym_camera_poses.zip',
+                'gym_video': 'path/to/gym_video.mp4',
+                'gym_image_set': 'path/to/gym_image_set.zip',
+                'liwen_reconstruction': 'path/to/liwen_reconstruction.zip',
+                'liwen_camera_poses': 'path/to/liwen_camera_poses.zip',
+                'liwen_video': 'path/to/liwen_video.mp4',
+                'liwen_image_set': 'path/to/liwen_image_set.zip',
+                'meeting_room_reconstruction': 'path/to/meeting_room_reconstruction.zip',
+                'meeting_room_camera_poses': 'path/to/meeting_room_camera_poses.zip',
+                'meeting_room_video': 'path/to/meeting_room_video.mp4',
+                'meeting_room_image_set': 'path/to/meeting_room_image_set.zip',
+                'muse_reconstruction': 'path/to/muse_reconstruction.zip',
+                'muse_camera_poses': 'path/to/muse_camera_poses.zip',
+                'muse_video': 'path/to/muse_video.mp4',
+                'muse_image_set': 'path/to/muse_image_set.zip',
+                'parking_lot_reconstruction': 'path/to/parking_lot_reconstruction.zip',
+                'parking_lot_camera_poses': 'path/to/parking_lot_camera_poses.zip',
+                'parking_lot_video': 'path/to/parking_lot_video.mp4',
+                'parking_lot_image_set': 'path/to/parking_lot_image_set.zip',
+                'zhiren_reconstruction': 'path/to/zhiren_reconstruction.zip',
+                'zhiren_camera_poses': 'path/to/zhiren_camera_poses.zip',
+                'zhiren_video': 'path/to/zhiren_video.mp4',
+                'zhiren_image_set': 'path/to/zhiren_image_set.zip',
+                'txd_reconstruction': 'path/to/txd_reconstruction.zip',
+                'txd_camera_poses': 'path/to/txd_camera_poses.zip',
+                'txd_video': 'path/to/txd_video.mp4',
+                'txd_image_set': 'path/to/txd_image_set.zip'
+            };
+
+            const link = document.createElement('a');
+            link.href = downloadLinks[fileName];
+            link.download = fileName;
+            link.click();
+        }
+    </script>
+</body>
+
+</html>    

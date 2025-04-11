@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - OccluScene3D Benchmark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-light: #3d566e;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --light-gray: #f5f7f8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light-gray);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+       .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+       .logo span {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Hero section */
+       .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), 
+                        url('images/teaser.png') no-repeat center center/cover;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+       .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
+        }
+
+       .hero p {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+
+       .cta-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+       .cta-btn:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+
+                /* Introduction section */
+       .introduction {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+       .introduction h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+
+       .introduction p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Video section */
+       .video-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+       .video-placeholder {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+       .video-placeholder iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Feature section */
+       .feature {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+       .feature-item {
+            background: white;
+            border-radius: 5px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+       .feature-item video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+       .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+       .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+       .footer-column ul {
+            list-style: none;
+        }
+
+       .footer-column ul li {
+            margin-bottom: 0.6rem;
+        }
+
+       .footer-column ul li a {
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+
+       .footer-column ul li a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+       .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #3d566e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+           .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
+           .hero {
+                padding: 6rem 1rem;
+            }
+
+           .hero h1 {
+                font-size: 2.2rem;
+            }
+
+           .hero p {
+                font-size: 1.2rem;
+            }
+
+           .feature {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        .button.disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            pointer-events: none; /* 防止点击 */
+        }
+        .introduction h2 {
+                font-size: 1.6rem;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Occlu<span>Scene3D</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hero">
+        <h1>Welcome to OccluScene3D Benchmark</h1>
+        <p>
+            Unleash the power of 3D large scene reconstruction and rendering with our comprehensive benchmark designed to evaluate algorithms in the presence of occlusion challenges. Whether you're a researcher, developer, or enthusiast, OccluScene3D offers the datasets you need to advance your work.
+        </p>
+        <a href="download.html" class="cta-btn">Get Started</a>
+    </div>
+    <div class="introduction">
+        <h2>Introduction</h2>
+        <p>
+            We present a comprehensive benchmark dedicated to image-based 3D reconstruction, which serves as a crucial tool for researchers and developers in this field. The benchmark sequences are meticulously acquired in truly realistic conditions, mirroring the complexity and variability of real-world scenarios.
+            These sequences are captured using a common mobile phone, specifically leveraging its wide-angle mode and landscape orientation. The recordings are made at a frame rate of 60 Hz, which provides a smooth and detailed visual stream, essential for accurate 3D reconstruction.
+            We uniformly extract 3% of the frames from each video sequence, subsequently, we employ COLMAP to estimate the camera intrinsic and extrinsic parameters, which are fundamental for establishing the spatial relationships and geometric properties within the captured scenes. These accurately estimated parameters form the cornerstone for subsequent 3D reconstruction tasks, enabling the development and evaluation of various algorithms with a high degree of precision and reliability.
+        </p>
+    </div>
+    <div class="video-section">
+        <div class="video-placeholder">
+            <iframe width="890" height="504" src="https://www.youtube.com/embed/zmowxohunqo?si=wNB7s2MVOt1m8gOd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="feature">
+        <div class="feature-item">
+            <i class="fa-solid fa-database"></i>
+            <h3>Gallery</h3>
+            <video autoplay loop muted>
+                <source src="videos/OccluGaussian_gallery.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-database"></i>
+            <h3>Canteen</h3>
+            <video autoplay loop muted>
+                <source src="videos/OccluGaussian_canteen.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-database"></i>
+            <h3>Classbuilding</h3>
+            <video autoplay loop muted>
+                <source src="videos/OccluGaussian_classbuilding.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>OccluScene3D</h3>
+                <p>A benchmark for evaluating large scene reconstruction and rendering with occlusion challenges.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://arxiv.org/pdf/2503.16177">Paper</a></li>
+                    <li><a href="#">Supplementary</a></li>
+                    <li><a href="https://github.com/OccluGaussian/OccluScene3D">GitHub</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:liushiyong3@huawei.com">liushiyong3@huawei.com</a></li>
+                    <li><a href="mailto:tangxiao12@huawei.com">tangxiao12@huawei.com</a></li>
+                    <li><a href="mailto:zhihao.li@huawei.com">zhihao.li@huawei.com</a></li>
+                    <li><a href="mailto:119010099@link.cuhk.edu.cn" class="email-link">119010099@link.cuhk.edu.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 OccluScene3D Benchmark. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+</body>
+</html>
