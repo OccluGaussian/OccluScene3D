@@ -63,6 +63,11 @@
             color: white;
         }
 
+        .logo span {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -86,7 +91,7 @@
         /* Hero section */
        .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                url('https://example.com/your-3d-model-image.jpg') no-repeat center center/cover;
+                url('images/teaser.png') no-repeat center center/cover;
             height: 200px;
             display: flex;
             justify-content: center;
@@ -200,11 +205,11 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">OccluScene3D</div>
+            <div class="logo">Occlu<span>Scene</span><span style="color: chocolate;">3D</span></div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <!-- <li><a href="benchmark.html" class="button disabled">Benchmark</a></li> -->
                     <li><a href="download.html">Download</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>

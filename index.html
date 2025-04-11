@@ -141,6 +141,14 @@
             color: var(--dark);
         }
 
+        /* page section */
+       .paper-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
         /* Video section */
        .video-section {
             max-width: 1200px;
@@ -278,16 +286,41 @@
         .introduction h2 {
                 font-size: 1.6rem;
             }
+        @media (min-width: 992px) {
+        .col-md-5 {
+            width: 41.66666667%;
+        }
+
+        #additional th {
+            text-align: left;
+        }
+
+        pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            overflow: auto;
+        }
+    }
     </style>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">Occlu<span>Scene3D</span></div>
+            <div class="logo">Occlu<span>Scene</span><span style="color: chocolate;">3D</span></div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <!-- <li><a href="benchmark.html" class="button disabled">Benchmark</a></li> -->
                     <li><a href="download.html">Download</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -340,6 +373,45 @@
             </video>
         </div>
     </div>
+
+    <div class="paper-section">
+        <!-- 这里可以添加更多资源的描述和下载链接 -->
+        <div class="col-md-5">
+            <table style="width:100%" id="additional">
+                <tbody>
+                    <tr>
+                        <th><h3>Paper</h3></th>
+                        <th><h3>Supplementary</h3></th>
+                    
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://arxiv.org/pdf/2503.16177" target="_blank">
+                                <img src="images/paper.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://drive.google.com/file/d/0B-ePgl6HF260MGhQX0dCcmdHbFk/view?usp=sharing&amp;resourcekey=0-NGDZk7msShrLsAIzelHTEQ" target="_blank">
+                                <img src="images/supplementary.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="paper-section col-md-12">
+        <h2>BibTeX</h2>
+        <p>Please cite our work if you use data from this site.</p>
+        <pre>@article{liu2025occlugaussian,
+    title={OccluGaussian: Occlusion-Aware Gaussian Splatting for Large Scene Reconstruction and Rendering},
+    author={Liu, Shiyong and Tang, Xiao and Li, Zhihao and He, Yingfan and Ye, Chongjie and Liu, Jianzhuang and Huang, Binxiao and Zhou, Shunbo and Wu, Xiaofei},
+    journal={arXiv preprint arXiv:2503.16177},
+    year={2025}
+}</pre>
+    </div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-column">

@@ -92,7 +92,7 @@
         /* Page header with background */
         .page-header {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
-                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+                url('images/teaser.png') no-repeat center center/cover;
             color: white;
             padding: 6rem 0;
             text-align: center;
@@ -191,7 +191,7 @@
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 3rem 0 1.5rem;
+            padding: 1.5rem 0 1.5rem;
         }
 
         .footer-container {
@@ -296,11 +296,11 @@
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">Occlu<span>Scene3D</span></div>
+            <div class="logo">Occlu<span>Scene</span><span style="color: chocolate;">3D</span></div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="benchmark.html" class="button disabled">Benchmark</a></li>
+                    <!-- <li><a href="benchmark.html" class="button disabled">Benchmark</a></li> -->
                     <li><a href="download.html">Download</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -315,10 +315,10 @@
 
     <div class="main-container">
         <div class="section">
-            <h2 class="section-title">Training Set</h2>
+            <h2 class="section-title">OccluGaussian Set</h2>
 
             <div class="dataset-info">
-                <p>This set contains scenes used in OccluGaussian for trianing.</p>
+                <p>This set contains scenes used in OccluGaussian for trianing and testing.</p>
             </div>
 
             <table class="download-table">
@@ -364,10 +364,10 @@
         <div class="section">
             <h2 class="section-title">Advanced Occlusion Set</h2>
 
-            <div class="dataset-info">
+            <!-- <div class="dataset-info">
                 <h3>Complex Occlusion Scenes</h3>
                 <p>This set contains challenging scenes with complex occlusion patterns for benchmarking state-of-the-art 3D scene understanding algorithms.</p>
-            </div>
+            </div> -->
 
             <table class="download-table">
                 <thead>
@@ -440,35 +440,6 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="section">
-            <h2 class="section-title">Additional Resources</h2>
-            <!-- 这里可以添加更多资源的描述和下载链接 -->
-            <div class=" col-md-5">
-                <table style="width:100%" id="additional">
-                    <tbody>
-                        <tr>
-                            <th><h3>Paper</h3></th>
-                            <th><h3>Supplementary</h3></th>
-                        
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="https://arxiv.org/pdf/2503.16177" target="_blank">
-                                    <img src="images/paper.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="https://drive.google.com/file/d/0B-ePgl6HF260MGhQX0dCcmdHbFk/view?usp=sharing&amp;resourcekey=0-NGDZk7msShrLsAIzelHTEQ" target="_blank">
-                                    <img src="images/supplementary.png" style="height: 180px; border: 1px solid black; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
    <footer>
      <!--     <div class="footer-container">
